@@ -1,5 +1,6 @@
 #include "wamacry.h"
 #include "ui_wamacry.h"
+bool flag=false;
 
 WamaCry::WamaCry(QWidget *parent) :
     QMainWindow(parent),
@@ -10,15 +11,26 @@ WamaCry::WamaCry(QWidget *parent) :
     setFixedSize(this->width(), this->height());
 
     load_config();
-    ui->textBrowser->setText(englishdoc);
+    //ui->textBrowser->setText(englishdoc);
+    ui->textBrowser->setText(chinesedoc);
 
-    QMediaPlaylist *playlist = new QMediaPlaylist();
-    playlist->addMedia(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + musicpath));
-    playlist->setPlaybackMode(QMediaPlaylist::Loop);
+    try{
+        QMediaPlaylist *playlist = new QMediaPlaylist();
+        playlist->addMedia(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + musicpath));
+        if(!musicpath.isEmpty()){
+            playlist->setPlaybackMode(QMediaPlaylist::Loop);
 
-    QMediaPlayer *music = new QMediaPlayer();
-    music->setPlaylist(playlist);
-    music->play();
+            QMediaPlayer *music = new QMediaPlayer();
+            music->setPlaylist(playlist);
+            music->play();
+
+        }
+
+    }catch(std::exception e){
+
+    }
+
+
 
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(showTime()));
@@ -70,7 +82,8 @@ void WamaCry::on_link3_clicked()
 void WamaCry::on_button1_clicked()
 {
     QMessageBox msg;
-    msg.setText("Error!");
+    msg.setText("The Link has been copyed to your clipboard.");
+    msg.setIcon(QMessageBox::Information);
     msg.exec();
 }
 
@@ -180,6 +193,6 @@ void WamaCry::load_config()
     }
     else
     {
-        date_end = QDateTime::fromString(QString("2017:6:1"), "yyyy:M:d");
+        date_end = QDateTime::fromString(QString("2018:6:1"), "yyyy:M:d");
     }
 }

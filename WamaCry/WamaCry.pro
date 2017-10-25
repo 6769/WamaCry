@@ -32,3 +32,4 @@ HEADERS  += wamacry.h
 FORMS    += wamacry.ui
 
 RC_ICONS =ico.ico
+VERSION = 1.1.0.4
