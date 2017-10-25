@@ -45,7 +45,7 @@ mod文件夹内事先放置了几个参考的ini文件，包括：
 ## Screenshot
 ![clipboard01](https://cloud.githubusercontent.com/assets/6072743/26133554/88b1e0c8-3ada-11e7-9796-1059ea8b93dc.png)
 ![3](https://cloud.githubusercontent.com/assets/6072743/26133474/e2aee0ea-3ad9-11e7-8aeb-b434e277491a.gif)
-
+![greenHat](screenshot/greenHat.png)
 ## 许可证
 此软件基于本人原创~~抄袭~~的可乐协议发布>>[license](/LICENSE.txt)
 # >>>请谨慎使用！<<<
